@@ -1,2 +1,2 @@
 # dbt-demo
-dbt cloud demo playground
+dbt cloud sandbox
