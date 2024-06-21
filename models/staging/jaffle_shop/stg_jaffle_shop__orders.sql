@@ -1,4 +1,4 @@
-with 
+with
 
 source as (
 
@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        id at order_id,
+        id as order_id,
         user_id,
         order_date,
         status,
