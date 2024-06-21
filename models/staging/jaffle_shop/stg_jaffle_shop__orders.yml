@@ -4,6 +4,9 @@ models:
     columns:
       - name: order_id
         description: Unique key for each order
+        data_tests:
+          - unique
+          - not_null
       - name: user_id
         description: Customer key
       - name: order_date

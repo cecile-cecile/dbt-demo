@@ -1,10 +1,18 @@
-version: 2
-
-sources:
-  - name: stripe
-    description: ""
-    database: dbt-tutorial
-    schema: stripe
-    tables:
-      - name: payment
-        description: ""
+models:
+  - name: stg_stripe__payments
+    description: Payments from Stripe
+    columns:
+      - name: payment_id
+        description: Payment key
+      - name: order_id
+        description: Order key
+      - name: payment_method
+        description: Type of payment
+      - name: status
+        description: Order status
+      - name: amount
+        description: Order amount
+      - name: created_at
+        description: Order created at
+      - name: _batched_at
+        description: Metadata
