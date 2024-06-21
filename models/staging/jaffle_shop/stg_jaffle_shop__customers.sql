@@ -10,7 +10,7 @@ source as (
 renamed as (
 
     select
-        id as user_id,
+        id as customer_id,
         first_name,
         last_name
 

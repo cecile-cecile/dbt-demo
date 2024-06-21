@@ -2,9 +2,9 @@ models:
   - name: stg_jaffle_shop__customers
     description: Customers
     columns:
-      - name: user_id
+      - name: customer_id
         description: Customer key
-        data_tests:
+        tests:
           - not_null
           - unique
       - name: first_name
