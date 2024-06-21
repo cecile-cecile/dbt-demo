@@ -35,7 +35,6 @@ final as (
         coalesce(customer_orders.number_of_orders, 0) as number_of_orders
 
     from customers
-
     left join customer_orders
         on customers.customer_id = customer_orders.customer_id
 
