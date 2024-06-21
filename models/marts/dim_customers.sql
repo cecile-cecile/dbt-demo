@@ -20,8 +20,7 @@ customer_orders as (
         count(order_id) as number_of_orders
 
     from orders
-
-    group by 1
+    group by customer_id
 
 ),
 
