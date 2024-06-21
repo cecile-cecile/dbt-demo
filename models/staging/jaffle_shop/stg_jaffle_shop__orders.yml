@@ -1,0 +1,14 @@
+models:
+  - name: stg_jaffle_shop__orders
+    description: Orders
+    columns:
+      - name: order_id
+        description: Unique key for each order
+      - name: user_id
+        description: Customer key
+      - name: order_date
+        description: Date which order was placed
+      - name: status
+        description: Order status
+      - name: _etl_loaded_at
+        description: Loader metadata
