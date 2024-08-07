@@ -4,6 +4,9 @@ models:
     columns:
       - name: payment_id
         description: Payment key
+        data_tests:
+          - not_null
+          - unique
       - name: order_id
         description: Order key
       - name: payment_method
