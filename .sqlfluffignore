@@ -1,0 +1,9 @@
+# dbt output files
+target/
+logs/
+
+# dependencies
+dbt_packages/
+
+# other
+macros/
