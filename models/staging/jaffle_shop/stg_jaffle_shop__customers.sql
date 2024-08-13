@@ -1,6 +1,5 @@
 with 
-
-
+-- test comment
 source as (
 
     select * from {{ source('jaffle_shop', 'customers') }}
