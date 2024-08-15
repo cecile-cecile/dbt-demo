@@ -1,6 +1,6 @@
 sources:
   - name: jaffle_shop
-    database: dbt-tutorial
+    database: dt-cecile-sandbox-dev
     schema: jaffle_shop
     tables:
       - name: customers
