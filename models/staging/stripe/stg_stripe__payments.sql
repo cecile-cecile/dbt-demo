@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        id as payment_id,
+        id as payment_id_test,
         orderid as order_id,
         paymentmethod as payment_method,
         status,
