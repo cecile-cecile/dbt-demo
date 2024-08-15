@@ -11,7 +11,7 @@ renamed as (
 
     select
         id as customer_id_test,
-        first_name,
+        first_name as first_name_test,
         last_name
 
     from source
