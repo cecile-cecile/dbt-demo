@@ -3,7 +3,7 @@ models:
     description: Customers
     columns:
       - name: customer_id
-        description: Customer key
+        description: '{{ doc("customer_id") }}'
         data_tests:
           - not_null
           - unique
