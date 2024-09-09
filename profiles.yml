@@ -1,5 +1,5 @@
 dbt-demo:
-  target: dev
+  target: default
   outputs:
     dev:
       dataset: dbt_cc
