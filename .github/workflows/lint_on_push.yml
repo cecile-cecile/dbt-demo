@@ -1,4 +1,4 @@
-name: lint dbt project on push
+name: Lint dbt Project on Push
 
 on:
   push:
