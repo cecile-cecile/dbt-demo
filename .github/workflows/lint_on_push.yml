@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout branch
+      - name: Checkout repo
         uses: "actions/checkout@v3"
 
       - name: Install Python
@@ -24,5 +24,25 @@ jobs:
       - name: Install SQLFluff
         run: "python -m pip install sqlfluff"
 
-      - name: Lint project
-        run: "sqlfluff lint models --dialect bigquery"
+      - name: Get changed SQL files in models directory
+        id: changed-sql-files
+        uses: tj-actions/changed-files@v45
+        with:
+          files: 'models/**/*.sql'
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.15'
+
+      - name: Install SQLFluff
+        run: pip install sqlfluff==3.1.1
+
+      - name: Lint changed SQL files
+        if: steps.changed-sql-files.outputs.any_changed == 'true'
+        run: |
+          changed_files="${{ steps.changed-sql-files.outputs.all_changed_files }}"
+          for file in $changed_files; do
+            echo "Linting $file"
+            sqlfluff lint "$file" --dialect bigquery --format github-annotation-native
+          done
