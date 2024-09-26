@@ -32,6 +32,7 @@ jobs:
           separator: ', '
   
       - name: List all changed SQL
+        if: steps.changed-sql-files.outputs.any_changed == 'true'
         env:
             ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
         run: |
