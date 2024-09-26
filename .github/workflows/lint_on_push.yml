@@ -29,7 +29,6 @@ jobs:
         uses: tj-actions/changed-files@v45
         with:
           files: 'models/**/*.sql'
-          separator: ', '
   
       - name: List all changed SQL files
         if: steps.changed-sql-files.outputs.any_changed == 'true'
