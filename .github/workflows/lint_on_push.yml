@@ -29,7 +29,7 @@ jobs:
         uses: tj-actions/changed-files@v45
         with:
           files: 'models/**/*.sql'
-          separator: ','
+          separator: ', '
   
       - name: List all changed SQL
         env:
@@ -40,17 +40,10 @@ jobs:
           done
       
       - name: Lint changed SQL files
-        if: ${ALL_CHANGED_FILES} == 'true
+        if: steps.changed-sql-files.outputs.any_changed == 'true'
         run: |
-          for file in ${ALL_CHANGED_FILES}; do
+          changed_files="${{ steps.changed-sql-files.outputs.all_changed_files }}"
+          for file in $changed_files; do
             echo "Linting $file"
             sqlfluff lint "$file" --dialect bigquery --format github-annotation-native
           done
-          
-        # if: steps.changed-sql-files.outputs.any_changed == 'true'
-        # run: |
-        #   # changed_files="${{ steps.changed-sql-files.outputs.all_changed_files }}"
-        #   for file in $changed_files; do
-        #     echo "Linting $file"
-        #     sqlfluff lint "$file" --dialect bigquery --format github-annotation-native
-        #   done
