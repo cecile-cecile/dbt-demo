@@ -14,7 +14,7 @@ jobs:
     
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Python
         uses: actions/setup-python@v4
@@ -31,7 +31,7 @@ jobs:
           files: 'models/**/*.sql'
           separator: ', '
   
-      - name: List all changed SQL
+      - name: List all changed SQL files
         if: steps.changed-sql-files.outputs.any_changed == 'true'
         env:
             ALL_CHANGED_FILES: ${{ steps.changed-sql-files.outputs.all_changed_files }}
