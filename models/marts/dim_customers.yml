@@ -2,11 +2,11 @@ version: 2
 
 models:
   - name: dim_customers
+    latest_version: 2 #if this changes from 1, then append _v1 to original dim_customers
     description: ""
     columns:
       - name: customer_id
         description: '{{ doc("customer_id") }}'
-
       - name: first_name
         description: '{{ doc("customer_first_name") }}'
       - name: last_name
@@ -17,3 +17,14 @@ models:
         description: ""
       - name: number_of_orders
         description: ""
+
+    versions:
+      - v: 1
+        config:
+          materialized: view
+      - v: 2
+        config:
+          alias: dim_customer
+        columns:
+          - include: all
+            exclude: [first_name, last_name]
